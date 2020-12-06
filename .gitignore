@@ -1,3 +1,9 @@
+# Project specific
+upload/
+download/
+*.log
+.vscode
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
