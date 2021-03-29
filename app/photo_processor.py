@@ -15,6 +15,7 @@ from os import listdir, remove
 from os.path import isfile, join
 from scipy.spatial import distance as dist
 from PIL import Image
+from pathlib import Path
 
 
 def list_dir(mypath):
@@ -92,17 +93,17 @@ def midpoint(ptA, ptB):
     return (ptA[0] + ptB[0]) * 0.5, (ptA[1] + ptB[1]) * 0.5
 
 
-work_folder = "D:/GGM/"
-result_folder = work_folder + "upload/"
-photo_dir = work_folder + "photo/"
-csv_dir = work_folder + "data/full/"
-tmp_file = work_folder + "tmp.jpg"
-files = list_dir(photo_dir)
+work_folder = Path("data")
+result_folder = work_folder / "output_images"
+photo_dir = work_folder / "input_images"
+csv_dir = work_folder / "database"
+tmp_file = work_folder / "tmp.jpg"
+files = [file for file in photo_dir.iterdir()]
 
 for file in files:
     print(file)
     if file.lower().endswith(".jpg"):
-        copyfile(photo_dir + file, tmp_file)
+        copyfile(photo_dir / file, tmp_file)
         number_list = get_image_id(file)
 
         col_prefix = file[:2]

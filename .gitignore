@@ -1,6 +1,5 @@
 # Project specific
-upload/
-download/
+data/
 *.log
 .vscode
 
